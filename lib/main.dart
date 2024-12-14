@@ -1,3 +1,6 @@
+import 'dart:math';
+import 'dart:developer' as developer;
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -84,35 +87,80 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
+        title: Text('Widget Sample'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.add),
+            onPressed: () {
+              developer.log('Add button pressed');
+              // Respond to icon press
+            },
+          ),
+          IconButton(
+            icon: const Icon(Icons.share),
+            onPressed: () {
+              developer.log('Share button pressed');
+              // Respond to icon press
+            },
+          ),
+        ],
       ),
       body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          //
-          // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
-          // action in the IDE, or press "p" in the console), to see the
-          // wireframe for each widget.
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+        // child: Column(
+        // mainAxisAlignment: MainAxisAlignment.start,
+        // children: <Widget>[
+        //   const Text(
+        //     'Foo',
+        //   ),
+        //   Text(
+        //     'Text',
+        //   ),
+        // ],
+        // mainAxisAlignment: MainAxisAlignment.center,
+        // children: <Widget>[
+        //   const Text(
+        //     'You have pushed the button this many times:',
+        //   ),
+        //   Text(
+        //     '$_counter',
+        //     style: Theme.of(context).textTheme.headlineMedium,
+        //   ),
+        // ],
+        // ),
+        // child: Row(
+        //   mainAxisAlignment: MainAxisAlignment.start,
+        //   children: <Widget>[
+        //     const Text(
+        //       'Bar',
+        //     ),
+        //     Text(
+        //       'Text',
+        //     ),
+        //   ],
+        // ),
+        child: Container(
+          color: Colors.red,
+          height: double.infinity,
+          child: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                const Text(
+                  'Foo',
+                ),
+                const Text(
+                  'Text',
+                ),
+                const Text(
+                  'Bar',
+                ),
+                const Text(
+                  'Text',
+                ),
+              ],
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
+          ),
         ),
       ),
       floatingActionButton: FloatingActionButton(
