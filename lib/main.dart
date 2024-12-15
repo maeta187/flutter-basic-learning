@@ -2,6 +2,7 @@ import 'dart:math';
 import 'dart:developer' as developer;
 
 import 'package:flutter/material.dart';
+import 'next_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -152,11 +153,18 @@ class _MyHomePageState extends State<MyHomePage> {
                 const Text(
                   'Text',
                 ),
-                const Text(
-                  'Bar',
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute<void>(
+                      builder: (BuildContext context) {
+                        return const NextPage();
+                      },
                 ),
-                const Text(
-                  'Text',
+                  );
+                },
+                child: const Text('次へ'),
                 ),
               ],
             ),
