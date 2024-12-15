@@ -34,6 +34,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  String text = '初期値';
 
   void _incrementCounter() {
     setState(() {
@@ -76,16 +77,19 @@ class _MyHomePageState extends State<MyHomePage> {
               const Text(
                 'Text',
               ),
+              Text(text),
               ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
+                onPressed: () async {
+                  final result = await Navigator.push(
                     context,
-                    MaterialPageRoute<void>(
-                      builder: (BuildContext context) {
-                        return const NextPage();
-                      },
+                    MaterialPageRoute<String>(
+                      builder: (context) => const NextPage('Bar'),
                     ),
                   );
+                  setState(() {
+                    text = result ?? 'text';
+                  });
+                  developer.log('Navigation result: $result');
                 },
                 child: const Text('次へ'),
               ),
