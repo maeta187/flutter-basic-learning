@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class NextPage extends StatelessWidget {
-  const NextPage({super.key});
+  const NextPage(this.name, {super.key});
+  final String name;
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +16,18 @@ class NextPage extends StatelessWidget {
           width: double.infinity,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [const Text('This is the next page')],
+            children: <Widget>[
+              const Text('This is the next page'),
+              Text(name),
+              Center(
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.pop(context, '戻り値');
+                  },
+                  child: const Text('戻る'),
+                ),
+              )
+            ],
           ),
         ),
       ),
