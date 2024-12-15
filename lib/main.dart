@@ -70,6 +70,7 @@ class _MyHomePageState extends State<MyHomePage> {
           height: double.infinity,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               const Text(
                 'Foo',
@@ -78,6 +79,20 @@ class _MyHomePageState extends State<MyHomePage> {
                 'Text',
               ),
               Text(text),
+              // pubspec.yamlにパスを追加して画像を表示
+              Image.asset('images/dog.jpg'),
+              Icon(
+                Icons.favorite,
+                color: Colors.pink,
+                size: 24.0,
+                semanticLabel: 'Text to announce in accessibility modes',
+              ),
+              // Image.network(
+              //     'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg'),
+              // const Image(
+              //   image: NetworkImage(
+              //       'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg'),
+              // ),
               ElevatedButton(
                 onPressed: () async {
                   final result = await Navigator.push(
