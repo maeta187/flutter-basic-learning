@@ -72,42 +72,23 @@ class _MyHomePageState extends State<MyHomePage> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              const Text(
+              Text(
                 'Foo',
+                style: TextStyle(
+                    fontSize: 40,
+                    // color: Colors.purpleAccent,
+                    // fontWeight: FontWeight.bold,
+                    // fontStyle: FontStyle.italic,
+                    // decoration: TextDecoration.underline,
+                    foreground: Paint()
+                      ..style = PaintingStyle.stroke
+                      ..strokeWidth = 3
+                      ..color = Colors.blue[700]!),
               ),
               const Text(
-                'Text',
-              ),
-              Text(text),
-              // pubspec.yamlにパスを追加して画像を表示
-              Image.asset('images/dog.jpg'),
-              Icon(
-                Icons.favorite,
-                color: Colors.pink,
-                size: 24.0,
-                semanticLabel: 'Text to announce in accessibility modes',
-              ),
-              // Image.network(
-              //     'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg'),
-              // const Image(
-              //   image: NetworkImage(
-              //       'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg'),
-              // ),
-              ElevatedButton(
-                onPressed: () async {
-                  final result = await Navigator.push(
-                    context,
-                    MaterialPageRoute<String>(
-                      builder: (context) => const NextPage('Bar'),
-                    ),
-                  );
-                  setState(() {
-                    text = result ?? 'text';
-                  });
-                  developer.log('Navigation result: $result');
-                },
-                child: const Text('次へ'),
-              ),
+                'Bar',
+                style: TextStyle(fontSize: 40, fontFamily: 'Raleway'),
+              )
             ],
           ),
         ),
