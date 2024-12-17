@@ -2,6 +2,7 @@ import 'dart:developer' as developer;
 
 import 'package:flutter/material.dart';
 import 'next_page.dart';
+import 'form_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -88,6 +89,17 @@ class _MyHomePageState extends State<MyHomePage> {
               const Text(
                 'Bar',
                 style: TextStyle(fontSize: 40, fontFamily: 'Raleway'),
+              ),
+              Center(
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const FormPage()));
+                  },
+                  child: const Text('入力フォーム'),
+                ),
               )
             ],
           ),
