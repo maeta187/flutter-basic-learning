@@ -3,6 +3,7 @@ import 'dart:developer' as developer;
 import 'package:flutter/material.dart';
 import 'next_page.dart';
 import 'form_page.dart';
+import 'list_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -100,7 +101,18 @@ class _MyHomePageState extends State<MyHomePage> {
                   },
                   child: const Text('入力フォーム'),
                 ),
-              )
+              ),
+              Center(
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const ListPage()));
+                  },
+                  child: const Text('リスト'),
+                ),
+              ),
             ],
           ),
         ),
